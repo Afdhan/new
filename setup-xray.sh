@@ -141,6 +141,7 @@ cat>/usr/local/etc/xray/trojanws.json<<EOF
         "clients": [
           {
             "id": "$uid"
+#tls
           }
         ],
         "decryption": "none"
