@@ -124,7 +124,7 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
-PORT=$((RANDOM + 10000))
+#PORT=$((RANDOM + 10000))
 domain=$(cat /etc/v2ray/domain)
 uid=$(cat /etc/trojan/uuid.txt)
 cat>/usr/local/etc/xray/trojanws.json<<EOF
@@ -136,7 +136,7 @@ cat>/usr/local/etc/xray/trojanws.json<<EOF
   },
   "inbounds": [
     {
-      "port": $PORT,
+      "port": 32181,
       "protocol": "trojan",
       "settings": {
         "clients": [
