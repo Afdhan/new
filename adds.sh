@@ -36,9 +36,9 @@ cat > /etc/v2ray/$Login-ssh.json <<END
       "wsntls2": "2095",
       "wsovpn": "2082",
       "squid": "${sqd}",
-      "ohps": "${ohps}",
-      "ohpd": "${ohpd}",
-      "ohpv": "${ohpv}",
+      "ohps": "8181",
+      "ohpd": "8282",
+      "ohpv": "8383",
       "badvpn": "7100-7300"
  }
 END
