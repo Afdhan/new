@@ -19,11 +19,11 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
         trg=$(grep -w "^### $user" /usr/local/etc/xray/trojanws.json | wc -l)
 		if [[ ${user_EXISTS} == '1' || ${trg} == '1' ]]; then
 			
-			cat > /etc/v2ray/$user-tr.json <<END
-                          {
-                          "Username Sudah Ada"
-                          }
-                        END
+	#		cat > /etc/v2ray/$user-tr.json <<END
+                    #      {
+                   #       "Username Sudah Ada"
+                #          }
+               #         END
 			echo "username already used"
 			exit 1
 		fi
