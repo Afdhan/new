@@ -109,7 +109,7 @@ echo -e "$green  Process Update & Upgrade Selesai        $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-
+systemctl stop nginx
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green  ISSUE CERT & Install TROJAN GFW       $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -143,6 +143,7 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
+systemctl restart nginx
 systemctl enable autosett
 wget -O /etc/set.sh "https://raw.githubusercontent.com/Afdhan/new/main/set.sh"
 chmod +x /etc/set.sh
