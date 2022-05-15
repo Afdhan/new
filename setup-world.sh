@@ -120,6 +120,12 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
+
+wget -O /usr/bin/addssh wget https://raw.githubusercontent.com/Afdhan/new/main/adds.sh && chmod +x /usr/bin/addssh
+wget -O /usr/bin/addxr wget https://raw.githubusercontent.com/Afdhan/new/main/addxr.sh && chmod +x /usr/bin/addxr
+wget -O /usr/bin/addtrg wget https://raw.githubusercontent.com/Afdhan/new/main/trjg.sh && chmod +x /usr/bin/addtrg
+
+
 #PORT=$((RANDOM + 10000))
 domain=$(cat /etc/v2ray/domain)
 uid=$(cat /etc/trojan/uuid.txt)
