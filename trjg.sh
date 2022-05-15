@@ -49,7 +49,7 @@ cat>/etc/v2ray/$user-tr.json<<EOF
       {
       "user": "${user}",
       "host": "${domain}",
-      "port": "${tr}",
+      "port": "443",
       "uuid": "${user}"
      }
 ],
