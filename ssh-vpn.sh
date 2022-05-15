@@ -105,7 +105,6 @@ fi
 
 mesg n || true
 clear
-menu
 END
 chmod 644 /root/.profile
 
@@ -240,7 +239,7 @@ connect = 127.0.0.1:22
 
 [dropbear]
 accept = 777
-connect = 127.0.0.1:22
+connect = 127.0.0.1:109
 
 [ws-stunnel]
 accept = 2096
@@ -265,7 +264,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 #OpenVPN
 wget https://raw.githubusercontent.com/Afdhan/new/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
-#Edu
+#Ws
 wget https://raw.githubusercontent.com/Afdhan/new/main/websocket.sh &&  chmod +x websocket.sh && ./websocket.sh
 
 # install fail2ban
