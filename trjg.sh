@@ -34,8 +34,8 @@ trojanglink="trojan-go://${uuid}@${domain}:443/?sni=${domain}&type=ws&host=${dom
 
 echo -e "### $user $exp" >> /etc/trojan/akun.conf
 systemctl restart trojan
-echo -e "\033[32m[Info]\033[0m Trojan-GFW Start Successfully !"
-sleep 2
+#echo -e "\033[32m[Info]\033[0m Trojan-GFW Start Successfully !"
+#sleep 2
 trojanlink="trojan://${user}@${domain}:${tr}"
 trojanlink2="trojan://${user}@${MYIP}:${tr}"
 
