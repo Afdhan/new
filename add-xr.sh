@@ -44,7 +44,7 @@ cat> /usr/local/etc/xray/vmess-$user.json<<END
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path":"/endka@u=$user&p=$uid&"
+          "path":"/worldssh@u=$user&p=$uid&"
         }
       }
     }
@@ -93,7 +93,7 @@ cat> /usr/local/etc/xray/vmess-$user.json<<END
 }
 END
 sed -i '$ i### Vmess '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'&' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /worldssh@u='"$user"'&p='"$uid"'&' /etc/nginx/conf.d/vps.conf
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
@@ -113,7 +113,7 @@ tls=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/endka@u=${user}&p=${uid}&",
+      "path": "/worldssh@u=${user}&p=${uid}&",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -123,26 +123,26 @@ none=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "endka.edu-proxy.site",
+      "add": "${domain}",
       "port": "80",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/endka@u=${user}&p=${uid}&",
+      "path": "/worldssh@u=${user}&p=${uid}&",
       "type": "none",
       "host": "${domain}",
       "tls": "none"
 }
 EOF`
 #cat>/etc/v2ray/user/$user-tls.json
-echo "{$uuid $uid" > /etc/v2ray/user/$user-tls.txt
+#echo "{$uuid $uid" > /etc/v2ray/user/$user-tls.txt
 vmesslink1="vmess://$(echo $tls | base64 -w 0)"
 vmesslink2="vmess://$(echo $none | base64 -w 0)"
 #echo $vmesslink1 > /etc/v2ray/user/$user-tls.json
 systemctl start xray@vmess-$user
 systemctl enable xray@vmess-$user
 echo -e "\033[32m[Info]\033[0m Xray-Vmess Start Successfully !"
-sleep 2
+#sleep 2
 systemctl reload nginx
 clear
 echo -e ""
