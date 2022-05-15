@@ -13,11 +13,11 @@ ver=$VERSION_ID
 #detail nama perusahaan
 country=ID
 state=Indonesia
-locality=Indonesia
-organization=www.endka.xyz
-organizationalunit=www.endka.xyz
-commonname=www.endka.xyz
-email=admin@endka.xyz
+locality=Kalimantan
+organization=WORLDSSH
+organizationalunit=WORLDSSH.TECH
+commonname=www.worldssh.tech
+email=admin@worldssh.tech
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Afdhan/new/main/password"
@@ -429,55 +429,71 @@ chmod +x bw
 chmod +x resett
 chmod +x kernel-updt
 #enc
+echo -e "SHC STARTED..."
 shc -r -f add-host -o add-host
 shc -r -f menu -o menu
 shc -r -f usernew -o usernew
+sleep 0.5
 shc -r -f trial -o trial
 shc -r -f hapus -o hapus
 shc -r -f member -o member
+sleep 0.5
 shc -r -f delete -o delete
 shc -r -f cek -o cek
 shc -r -f restart -o restart
+sleep 0.5
 shc -r -f speedtest -o speedtest
 shc -r -f info -o info
 shc -r -f about -o about
+sleep 0.5
 shc -r -f autokill -o autokill
 shc -r -f tendang -o tendang
 shc -r -f ceklim -o ceklim
+sleep 0.5
 shc -r -f ram -o ram
 shc -r -f renew -o renew
 shc -r -f clear-log -o clear-log
+sleep 0.5
 shc -r -f change-port -o change-port
 shc -r -f port-ovpn -o port-ovpn
 shc -r -f port-ssl -o port-ssl
+sleep 0.5
 shc -r -f port-wg -o port-wg
 shc -r -f port-sstp -o port-sstp
 shc -r -f port-tr -o port-tr
+sleep 0.5
 shc -r -f port-squid -o port-squid
 shc -r -f port-ws -o port-ws
 shc -r -f port-vless -o port-vless
+sleep 0.5
 shc -r -f wbmn -o wbmn
 shc -r -f xp -o xp
 shc -r -f m-system -o m-system
+sleep 0.5
 shc -r -f tessh -o tessh
 shc -r -f ssstp -o ssstp
 shc -r -f sssr -o sssr
+sleep 0.5
 shc -r -f ltp -o ltp
 shc -r -f wgg -o wgg
 shc -r -f trj -o trj
+sleep 0.5
 shc -r -f wss -o wss
 shc -r -f vls -o vls
 shc -r -f updatee -o updatee
+sleep 0.5
 shc -r -f vpsinfo -o vpsinfo
 shc -r -f status -o status
 shc -r -f bbr -o bbr
+sleep 0.5
 shc -r -f auto-reboot -o auto-reboot
 shc -r -f clearcache -o clearcache
 shc -r -f restart -o restart
+sleep 0.5
 shc -r -f bw -o bw
 shc -r -f resett -o resett
 shc -r -f kernel-updt -o kernel-updt
-
+echo -e "SHC DONE..."
 cd
 echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
