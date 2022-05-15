@@ -5,7 +5,7 @@ BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
-uuid=$(cat /etc/trojan/uuid.txt)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
