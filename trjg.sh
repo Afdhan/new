@@ -17,7 +17,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 		read -rp "Password: " -e user
 		user_EXISTS=$(grep -w $user /etc/trojan/akun.conf | wc -l)
         trg=$(grep -w "^### $user" /usr/local/etc/xray/trojanws.json | wc -l)
-		if [[ ${user_EXISTS} == '1' || ${trg} == '2' ]]; then
+		if [[ ${user_EXISTS} == '1' || ${trg} == '1' ]]; then
 			echo ""
 			rm -f /etc/v2ray/$user-tr.json
 			echo "username already used"
