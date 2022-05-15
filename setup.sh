@@ -24,13 +24,11 @@ clear
 echo ""
 echo ""
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " \E[0;100;33m        • AutoScript by EndkaVPN •            \E[0m"
+echo -e " \E[0;100;33m        • AutoScript by WORLDSSH •            \E[0m"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green               Telegram:$NC $red@Endka22               $NC"
-echo -e "$green        Script Version:$NC $red VERSI 2.10          $NC"
-echo -e "$green              Proses akan mulai dalam 5 detik!            $NC"
+echo -e "$green              Proses akan mulai dalam 3 detik!            $NC"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 5
+sleep 3
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green Silahkan masukan sub domain anda $NC"
@@ -52,10 +50,9 @@ mkdir /var/lib/premium-script;
 touch /etc/xray/clients.txt
 touch /etc/v2ray/clients.txt
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" >> /etc/v2ray/domain
-echo "$host" >> /root/domain
-echo "2.10" >> /home/version
-echo "@Endka22" >> /home/contact
+echo "$host" > /etc/v2ray/domain
+echo "$host" > /root/domain
+
 clear
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
@@ -77,17 +74,20 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green Installing AutoScript EndkaVPN        $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH OVPN               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 #install ssr
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install SSR                $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
 wget https://raw.githubusercontent.com/Afdhan/new/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 #install wireguard
@@ -95,24 +95,28 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green        Install Wireguard              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green  ISSUE CERT & Install TROJAN GFW       $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/inss-vt.sh && chmod +x inss-vt.sh && screen -S v2ray ./inss-vt.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install XRAY              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 #set backup
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green            SET BACKUP               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 
 rm -f /root/ssh-vpn.sh
@@ -126,7 +130,7 @@ rm -f /root/xray.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
-Documentation=https://EndkaVPN.xyz
+Documentation=https://worldssh.tech
 
 [Service]
 Type=oneshot
@@ -157,13 +161,19 @@ echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - OpenVPN                 : TCP 1194, UDP 2200"  | tee -a log-install.txt
 echo "   - Stunnel4                : 222, 777"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
-echo "   - Squid Proxy             : 3128, 8000 (limit to IP Server)"  | tee -a log-install.txt
+echo "   - Squid Proxy             : 3128, 8000 (limit to IP SSH)"  | tee -a log-install.txt
+echo "   - OHP SSH                 : 8181"  | tee -a log-install.txt
+echo "   - OHP Dropbear            : 8282"  | tee -a log-install.txt
+echo "   - OHP OVPN                : 8383"  | tee -a log-install.txt
 echo "   - Badvpn                  : 7300"  | tee -a log-install.txt
 echo "   - Nginx                   : 81, 80"  | tee -a log-install.txt
 echo "   - Wireguard               : 7070"  | tee -a log-install.txt
 echo "   - Shadowsocks-R           : 1443-1543"  | tee -a log-install.txt
 echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
 echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
+echo "   - XRAY VMESS XTLS SPLICE  : 443"  | tee -a log-install.txt
+echo "   - XRAY VMESS XTLS DIRECT  : 443"  | tee -a log-install.txt
+echo "   - XRAY VMESS WS TLS       : 443"  | tee -a log-install.txt
 echo "   - XRAY VLESS XTLS SPLICE  : 443"  | tee -a log-install.txt
 echo "   - XRAY VLESS XTLS DIRECT  : 443"  | tee -a log-install.txt
 echo "   - XRAY VLESS WS TLS       : 443"  | tee -a log-install.txt
@@ -177,24 +187,15 @@ echo "   - IPtables                 : [ON]"  | tee -a log-install.txt
 echo "   - Auto-Reboot              : [OFF]" | tee -a log-install.txt
 echo "   - IPv6                     : [OFF]" | tee -a log-install.txt
 echo "   - Auto-Remove-Expired      : [ON]"  | tee -a log-install.txt
-echo "   - Autobackup Data                "  | tee -a log-install.txt
-echo "   - AutoKill Multi Login User       " | tee -a log-install.txt
-echo "   - Auto Delete Expired Account     " | tee -a log-install.txt
-echo "   - Fully automatic script          " | tee -a log-install.txt
-echo "   - VPS settings                    " | tee -a log-install.txt
-echo "   - Admin Control                   " | tee -a log-install.txt
-echo "   - Change port                     " | tee -a log-install.txt
-echo "   - Restore Data                    " | tee -a log-install.txt
-echo "   - Full Orders For Various Services" | tee -a log-install.txt
-echo ""
 echo ""
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 sleep 3
 echo -e ""
+rm -f /root/*.sh
 rm -f /root/setup.sh
 rm -f /root/.bash_history
-echo -ne "[ ${yell}WARNING${NC} ] setelah install, apakah anda mau reboot vps? (y/n)? "
+echo -ne "[ ${yell}WARNING${NC} ] Reboot vps? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
 exit 0

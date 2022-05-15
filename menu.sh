@@ -1,30 +1,5 @@
 #!/bin/bash
 MYIP=$(curl -sS ipv4.icanhazip.com)
-echo "Checking VPS"
-#########################
-#IZIN=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | awk '{print $4}' | grep $MYIP)
-#if [ $MYIP = $IZIN ]; then
-#echo -e "\e[32mPermission Accepted...\e[0m"
-#else
-#echo -e "\e[31mPermission Denied!\e[0m";
-#echo -e "\e[31mDaftarkan IP Anda Terlebih Dahulu #\e[0m"
-##exit 0
-##fi
-#EXPIRED
-#expired=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | grep $MYIP | awk '{print $3}')
-#echo $expired > /root/expired.txt
-#today=$(date -d +1day +%Y-%m-%d)
-#while read expired
-#do
-	#exp=$(echo $expired | curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | grep $MYIP | awk '{print $3}')
-	#÷if [[ $exp < $today ]]; then
-		#Exp2="\033[1;31mExpired\033[0m"
-#        else
-#        Exp2=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | grep $MYIP | awk '{print $3}')
-	#fi
-#done < /root/expired.txt
-#rm /root/expired.txt
-#Name=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | grep $MYIP | awk '{print $2}')
 # Color Validation
 DF='\e[39m'
 Bold='\e[1m'
@@ -78,8 +53,6 @@ cpu_usage+=" %"
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 WKT=$(curl -s ipinfo.io/timezone )
-Sver=$(cat /home/version)
-tele=$(cat /home/contact)
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
 IPVPS=$(curl -s ipinfo.io/ip )
@@ -89,54 +62,99 @@ freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
+
+declare -A nama_hari
+nama_hari[Monday]="Senin"
+nama_hari[Tuesday]="Selasa"
+nama_hari[Wednesday]="Rabu"
+nama_hari[Thursday]="Kamis"
+nama_hari[Friday]="Jumat"
+nama_hari[Saturday]="Sabtu"
+nama_hari[Sunday]="Minggu"
+hari_ini=`date +%A`
+
+
+declare -A nama_bulan
+nama_bulan[Jan]="Januari"
+nama_bulan[Feb]="Februari"
+nama_bulan[Mar]="Maret"
+nama_bulan[Apr]="April"
+nama_bulan[May]="Mei"
+nama_bulan[Jun]="Juni"
+nama_bulan[Jul]="Juli"
+nama_bulan[Aug]="Agustus"
+nama_bulan[Sep]="September"
+nama_bulan[Oct]="Oktober"
+nama_bulan[Nov]="November"
+nama_bulan[Dec]="Desember"
+bulan_ini=`date +%b`
+
+hari=${nama_hari[$hari_ini]}
+jam=$(TZ='Asia/Jakarta' date +%R)
+tnggl=$(date +"%d")
+bln=${nama_bulan[$bulan_ini]}
+thn=$(date +"%Y")
 clear 
 
-figlet WORLDSSH TEAM | lolcat
 
-echo -e "                                                                                         "
-echo -e "\e[33m CPU Model            \e[0m: $cname"
-echo -e "\e[33m CPU Frequency        \e[0m: $freq MHz"
-echo -e "\e[33m Number Of Cores      \e[0m:  $cores"
-echo -e "\e[33m CPU Usage            \e[0m:  $cpu_usage"
-echo -e "\e[33m Operating System     \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
-echo -e "\e[33m Kernel               \e[0m:  `uname -r`"
-echo -e "\e[33m Total Amount Of RAM  \e[0m:  $tram MB"
-echo -e "\e[33m Used RAM             \e[0m: $red $uram\e[0m MB"
-echo -e "\e[33m Free RAM             \e[0m:  $fram MB"
-echo -e "\e[33m System Uptime        \e[0m:  $uptime "
-echo -e "\e[33m Isp Name             \e[0m:  $ISP"
-echo -e "\e[33m Domain               \e[0m:  $domain"	
-echo -e "\e[33m Ip Vps               \e[0m:  $IPVPS"	
-echo -e "\e[33m City                 \e[0m:  $CITY"
-echo -e "\e[33m Time                 \e[0m:  $WKT"
-echo -e "\e[33m Day                  \e[0m:  $DAY"
-echo -e "\e[33m Date                 \e[0m:  $DATE"
-echo -e "\e[33m Telegram             \e[0m:  $tele"
-echo -e "\e[33m Script Version       \e[0m:  $Sver"
-echo -e "\e[33m Certificate status   \e[0m:  \e[33mExpired in ${tlsStatus} days\e[0m"
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[33m Traffic\e[0m       \e[33mToday      Yesterday     Month   "
-echo -e "\e[33m Download\e[0m      $dtoday    $dyest       $dmon   \e[0m"
-echo -e "\e[33m Upload\e[0m        $utoday    $uyest       $umon   \e[0m"
-echo -e "\e[33m Total\e[0m       \033[0;36m  $ttoday    $tyest       $tmon  \e[0m "
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo ""
+echo ""
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "                    WORLDSSH TEAM " | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e " ${blue}Local TZ               :  Asia/Jakarta ${NC}"
+echo -e " ${blue}Time                   :  $jam WIB ${NC}"
+echo -e " ${blue}Day                    :  $hari ${NC}"
+echo -e " ${blue}Date                   :  $tnggl $bln $thn ${NC}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 
-echo -e "                 • SCRIPT MENU•                 "
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " [\e[36m•1\e[0m] SSH & OpenVPN Menu  [\e[36m•7\e[0m] SYSTEM Menu"
-echo -e " [\e[36m•2\e[0m] Wireguard Menu      [\e[36m•8\e[0m] Status Service"
-echo -e " [\e[36m•3\e[0m] SSR & SS Menu       [\e[36m•9\e[0m] VPS Information"
-echo -e " [\e[36m•4\e[0m] XRAY Menu           [\e[36m11\e[0m] Clear RAM Cache"
-echo -e " [\e[36m•5\e[0m] V2RAY Menu          [\e[31m12\e[0m] \e[31mREBOOT\033[0m"
-echo -e " [\e[36m•6\e[0m] Trojan GFW Menu    " 
+echo -e "                  • SERVER INFO •                 " | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "${blue}>${NC}\e[33m CPU Model              \e[0m: $cname"
+echo -e "${blue}>${NC}\e[33m CPU Frequency          \e[0m: $freq MHz"
+echo -e "${blue}>${NC}\e[33m Number Of Cores        \e[0m:  $cores"
+echo -e "${blue}>${NC}\e[33m CPU Usage              \e[0m:  $cpu_usage"
+echo -e "${blue}>${NC}\e[33m Operating System       \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
+echo -e "${blue}>${NC}\e[33m Kernel                 \e[0m:  `uname -r`"
+echo -e "${blue}>${NC}\e[33m Total Amount Of RAM    \e[0m:  $tram MB"
+echo -e "${blue}>${NC}\e[33m Used RAM               \e[0m:  $uram MB"
+echo -e "${blue}>${NC}\e[33m Free RAM               \e[0m:  $fram MB"
+echo -e "${blue}>${NC}\e[33m System Uptime          \e[0m:  $uptime "
+echo -e "${blue}>${NC}\e[33m ISP Name               \e[0m:  $ISP"
+echo -e "${blue}>${NC}\e[33m Domain                 \e[0m:  $domain"	
+echo -e "${blue}>${NC}\e[33m IP Vps                 \e[0m:  $IPVPS"	
+echo -e "${blue}>${NC}\e[33m City                   \e[0m:  $CITY"
+echo -e "${blue}>${NC}\e[33m TimeZone               \e[0m:  $WKT"
+echo -e "${blue}>${NC}\e[33m Day                    \e[0m:  $DAY ($hari)"
+echo -e "${blue}>${NC}\e[33m Date                   \e[0m:  $DATE"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "\e[33m Traffic\e[0m        \e[33mToday       Yesterday      Month   "
+echo -e "\e[33m Download\e[0m       $dtoday     $dyest        $dmon   \e[0m"
+echo -e "\e[33m Upload\e[0m         $utoday     $uyest        $umon   \e[0m"
+echo -e "\e[33m Total\e[0m       \033[0;36m   $ttoday     $tyest       $tmon  \e[0m "
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+
+echo -e "                 • TUNNEL MENU •                 " | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e   ""
-echo -e   " Press x or [ Ctrl+C ] • To-Exit-Script"
+echo -e " 1 ⸩ SSH & OpenVPN Menu"
+echo -e " 2 ⸩ Wireguard Menu"
+echo -e " 3 ⸩ SSR & SS Menu"
+echo -e " 4 ⸩ XRAY Menu"
+echo -e " 5 ⸩ V2RAY Menu"
+echo -e " 6 ⸩ Trojan GFW Menu"
+echo -e " 7 ⸩ Status Service"
+echo -e " 8 ⸩ VPS Information"
+echo -e " 9 ⸩ Clear RAM Cache"
+echo -e " 10 ⸩ REBOOT"
 echo -e   ""
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " \e[33mClient Name    \E[0m: $Name"
-echo -e " \e[33mScript Expired \E[0m: $Exp2"
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e " 0 ⸩ System Menu"
+echo -e " x ⸩ Exit"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e   ""
 read -p " Select menu :  "  opt
 echo -e   ""
@@ -147,10 +165,10 @@ case $opt in
 4) clear ; wss ;;
 5) clear ; wss ;;
 6) clear ; trj ;;
-7) clear ; m-system ;;
-8) clear ; status ;;
-9) clear ; about ;;
-11) clear ; clearcache ;;
-12) clear ; reboot ;;
+7) clear ; status ;;
+8) clear ; about ;;
+9) clear ; clearcache ;;
+10) clear ; reboot ;;
+0) clear ; m-system ;;
 x) exit ;;
 esac

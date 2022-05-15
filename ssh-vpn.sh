@@ -84,7 +84,7 @@ gem install lolcat
 
 #set panel
 mkdir -p /etc/trojango/
-mkdir -p /etc/v2ray/user/
+
 
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -218,12 +218,12 @@ rm -rf /root/vnstat-2.7
 
 cd
 #install sslh
-apt-get install sslh -y
+#apt-get install sslh -y
 
 #konfigurasi
 #port 443 to 77 and 777
-wget -O /etc/default/sslh "https://raw.githubusercontent.com/Endka22/Autosc/main/sslh.conf"
-service sslh restart
+#wget -O /etc/default/sslh "https://raw.githubusercontent.com/Endka22/Autosc/main/sslh.conf"
+#service sslh restart
 
 # install stunnel
 apt install stunnel4 -y
@@ -303,6 +303,8 @@ wget -O /etc/issue.net "https://raw.githubusercontent.com/Afdhan/new/main/banner
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
+#OHP
+wget "https://raw.githubusercontent.com/Afdhan/new/main/ohp.sh" && chmod +x ohp.sh && ./ohp.sh
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
@@ -476,10 +478,12 @@ shc -r -f restart -o restart
 shc -r -f bw -o bw
 shc -r -f resett -o resett
 shc -r -f kernel-updt -o kernel-updt
+
+cd
 echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
-cd
+
 apt autoclean -y
 apt -y remove --purge unscd
 apt-get -y --purge remove samba*;
@@ -488,7 +492,7 @@ apt-get -y --purge remove bind9*;
 apt-get -y remove sendmail*
 apt autoremove -y
 # finishing
-cd
+
 chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/nginx restart
 /etc/init.d/openvpn restart
@@ -511,7 +515,7 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 history -c
 echo "unset HISTFILE" >> /etc/profile
 
-cd
+
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/ssh-vpn.sh
