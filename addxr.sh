@@ -127,7 +127,7 @@ none=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "endka.edu-proxy.site",
+      "add": "${domain}",
       "port": "80",
       "id": "${uuid}",
       "aid": "0",
