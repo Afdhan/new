@@ -146,6 +146,7 @@ wget -O /etc/set.sh "https://raw.githubusercontent.com/Afdhan/new/main/set.sh"
 chmod +x /etc/set.sh
 history -c
 clear
+rm -f /root/*.sh
 echo " "
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green  Installation has been completed!!      $NC"
@@ -192,7 +193,7 @@ secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 sleep 3
 echo -e ""
-rm -f /root/*.sh
+
 rm -f /root/setup.sh
 rm -f /root/.bash_history
 echo -ne "[ ${yell}WARNING${NC} ] Reboot vps? (y/n)? "
