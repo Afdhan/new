@@ -121,6 +121,17 @@ clear
 wget https://raw.githubusercontent.com/Afdhan/new/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
 
+echo '#!/bin/bash' > /usr/local/bin/reboot_otomatis 
+echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_otomatis 
+echo 'waktu=$(date +"%T")' >> /usr/local/bin/reboot_otomatis
+echo 'clear-log && xp' >> /usr/local/bin/reboot-otomatis
+echo 'echo "Server Berhasil Reboot Pada Tanggal $tanggal Dan Jam $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_otomatis 
+echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_otomatis 
+chmod +x /usr/local/bin/reboot_otomatis
+echo "0 0 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+
+echo "0 */6 * * *  root clear-log && ban" >>/etc/cron.d/banned
+
 wget -O /usr/bin/addssh https://raw.githubusercontent.com/Afdhan/new/main/adds.sh && chmod +x /usr/bin/addssh
 wget -O /usr/bin/addxr https://raw.githubusercontent.com/Afdhan/new/main/addxr.sh && chmod +x /usr/bin/addxr
 wget -O /usr/bin/addtrg https://raw.githubusercontent.com/Afdhan/new/main/trjg.sh && chmod +x /usr/bin/addtrg
