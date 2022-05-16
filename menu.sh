@@ -102,7 +102,7 @@ echo ""
 echo ""
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e "                    WORLDSSH TEAM " | lolcat
-echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"p
 echo -e " ${blue}Local TZ               :  Asia/Jakarta ${NC}"
 echo -e " ${blue}Time                   :  $jam WIB ${NC}"
 echo -e " ${blue}Day                    :  $hari ${NC}"
@@ -131,44 +131,100 @@ echo -e "${blue}>${NC}\e[33m Date                   \e[0m:  $DATE"
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e "\e[33m Traffic\e[0m        \e[33mToday       Yesterday      Month   "
-echo -e "\e[33m Download\e[0m       $dtoday     $dyest        $dmon   \e[0m"
-echo -e "\e[33m Upload\e[0m         $utoday     $uyest        $umon   \e[0m"
-echo -e "\e[33m Total\e[0m       \033[0;36m   $ttoday     $tyest       $tmon  \e[0m "
+echo -e "\e[33m Download\e[0m       $dtoday   $dyest   $dmon   \e[0m"
+echo -e "\e[33m Upload\e[0m         $utoday   $uyest   $umon   \e[0m"
+echo -e "\e[33m Total\e[0m  \033[0;36m        $ttoday   $tyest   $tmon  \e[0m "
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 
-echo -e "                 • TUNNEL MENU •                 " | lolcat
+echo -e "                 • SSH MENU •                 " | lolcat
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e   ""
-echo -e " 1 ⸩ SSH & OpenVPN Menu"
-echo -e " 2 ⸩ Wireguard Menu"
-echo -e " 3 ⸩ SSR & SS Menu"
-echo -e " 4 ⸩ XRAY Menu"
-echo -e " 5 ⸩ V2RAY Menu"
-echo -e " 6 ⸩ Trojan GFW Menu"
-echo -e " 7 ⸩ Status Service"
-echo -e " 8 ⸩ VPS Information"
-echo -e " 9 ⸩ Clear RAM Cache"
-echo -e " 10 ⸩ REBOOT"
+echo -e " 1 ⸩ Create SSH & OVPN"
+echo -e " 2 ⸩ Trial SSH & OVPN"
+echo -e " 3 ⸩ Renew SSH & OVPN"
+echo -e " 4 ⸩ Delete SSH & OVPN"
+echo -e " 5 ⸩ Check Login SSH & OVPN"
+echo -e " 6 ⸩ Member SSH & OVPN"
+echo -e " 7 ⸩ Delete User Expired"
+echo -e " 8 ⸩ Sett Auto Kill"
+echo -e " 9 ⸩ Check Multi Login"
+echo -e " 10 ⸩ Restart SSH Service"
 echo -e   ""
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
-echo -e " 0 ⸩ System Menu"
+
+echo -e "                 • XRAY MENU •                 " | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e   ""
+echo -e " 11 ⸩ Create XRay VMess"
+echo -e " 12 ⸩ Delete XRay VMess"
+echo -e " 13 ⸩ Renew XRay VMess"
+echi -e ""
+echo -e " 14 ⸩ Create XRay VLess"
+echo -e " 15 ⸩ Delete XRay VLess"
+echo -e " 16 ⸩ Renew XRay VLess"
+echo -e ""
+echo -e " 17 ⸩ Create XRay Trojan GFW"
+echo -e " 18 ⸩ Delete XRay Trojan GFW"
+echo -e " 19 ⸩ Renew XRay Trojan GFW"
+echo -e ""
+echo -e " 20 ⸩ Create XRay Trojan GO"
+echo -e " 21 ⸩ Delete XRay Trojan GO"
+echo -e " 22 ⸩ Renew XRay Trojan GO"
+echo -e   ""
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+
+echo -e "                 • SYSTEM •                 " | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e   ""
+echo -e " 23 ⸩ Add New Host"
+echo -e " 24 ⸩ Restart All Service"
+echo -e " 25 ⸩ Check Ram Usage"
+echo -e " 26 ⸩ Check Bandwith Usage"
+echo -e " 27 ⸩ Sett AutoReboot"
+echo -e " 28 ⸩ Clear Log"
+echo -e " 29 ⸩ Change SSH Banner"
+echo -e " 30 ⸩ Kernel Update"
+echi -e ""
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e " 0 ⸩ Reboot"
 echo -e " x ⸩ Exit"
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e   ""
-read -p " Select menu :  "  opt
+read -p " Select menu option :  "  opt
 echo -e   ""
 case $opt in
-1) clear ; tessh ;;
-2) clear ; wgg ;;
-3) clear ; sssr ;;
-4) clear ; wss ;;
-5) clear ; wss ;;
-6) clear ; trj ;;
-7) clear ; status ;;
-8) clear ; about ;;
-9) clear ; clearcache ;;
-10) clear ; reboot ;;
-0) clear ; m-system ;;
+1) clear ; usernew ;;
+2) clear ; trial ;;
+3) clear ; renew ;;
+4) clear ; deluser ;;
+5) clear ; cek ;;
+6) clear ; member ;;
+7) clear ; delete ;;
+8) clear ; autokill ;;
+9) clear ; ceklim ;;
+10) clear ; restart ;;
+11) clear ; add-xr ;;
+12) clear ; del-xr ;;
+13) clear ; renewws ;;
+14) clear ; add-xvless ;;
+15) clear ; del-xvless ;;
+16) clear ; renewvless ;;
+17) clear ; add-tr ;;
+18) clear ; del-tr ;;
+19) clear ; renew-tr ;;
+20) clear ; add-trg ;;
+21) clear ; del-trg ;;
+22) clear ; renew-trg ;;
+23) clear ; add-host ;;
+24) clear ; resett ;;
+25) clear ; ram ;;
+26) clear ; bw ;;
+27) clear ; auto-reboot ;;
+28) clear ; clear-log ;;
+25) clear ; nano /etc/issue.net ;;
+26) clear ; kernel-updt ;;
+0) clear ; reboot ;;
 x) exit ;;
+*) sleep 1; menu ;;
 esac

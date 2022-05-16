@@ -4,6 +4,14 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
 
 clear
 uuid=$(cat /etc/trojan/uuid.txt)
@@ -15,12 +23,12 @@ domain=$IP
 fi
 tr="$(cat ~/log-install.txt | grep -i Trojan | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-		read -rp "Password: " -e user
+		read -rp "Username: " -e user
 		user_EXISTS=$(grep -w $user /etc/trojan/akun.conf | wc -l)
 
 		if [[ ${user_EXISTS} == '1' ]]; then
 			echo ""
-			echo "A client with the specified name was already created, please choose another name."
+			echo "Username already used"
 			exit 1
 		fi
 	done
@@ -37,11 +45,12 @@ clear
 echo -e ""
 echo -e "=============-Trojan-============" | lolcat
 echo -e "Remarks        : ${user}"
-echo -e "Host/IP        : ${domain}/${MYIP}"
+echo -e "Host/IP        : ${domain}"
 echo -e "port           : ${tr}"
 echo -e "Key            : ${user}"
 echo -e "link1          : ${trojanlink}"
-echo -e "link2		: ${trojanlink2}"
+echo -e "link2  		: ${trojanlink2}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
+echo -e "=================================" | lolcat
 echo -e "~ AutoScript WORLDSSH"

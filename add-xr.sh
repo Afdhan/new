@@ -4,14 +4,22 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
 
 clear
 source /var/lib/premium-script/ipvps.conf
 domain=$(cat /etc/v2ray/domain)
-read -rp "User: " -e user
+read -rp "Username: " -e user
 egrep -w "^### Vmess $user" /etc/nginx/conf.d/vps.conf >/dev/null
 if [ $? -eq 0 ]; then
-echo -e "Username Sudah Ada"
+echo "Username already used"
 exit 0
 fi
 PORT=$((RANDOM + 10000))
@@ -134,34 +142,33 @@ none=`cat<<EOF
       "tls": "none"
 }
 EOF`
-#cat>/etc/v2ray/user/$user-tls.json
-#echo "{$uuid $uid" > /etc/v2ray/user/$user-tls.txt
+
+
+
+
 vmesslink1="vmess://$(echo $tls | base64 -w 0)"
 vmesslink2="vmess://$(echo $none | base64 -w 0)"
-#echo $vmesslink1 > /etc/v2ray/user/$user-tls.json
+
 systemctl start xray@vmess-$user
 systemctl enable xray@vmess-$user
-echo -e "\033[32m[Info]\033[0m Xray-Vmess Start Successfully !"
-#sleep 2
 systemctl reload nginx
 clear
 echo -e ""
 echo -e "==========-XRAY/VMESS-=========="
 echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}/${MYIP}"
+echo -e "Domain         : ${domain}"
 echo -e "port TLS       : 443"
 echo -e "port none TLS  : 80"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /endka@u=${user}&p=${uid}&"
+echo -e "path           : /worldssh@u=${user}&p=${uid}&"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
 echo -e "link none TLS  : ${vmesslink2}"
 echo -e "=================================" | lolcat
-echo -e "Created        : $now"
 echo -e "Expired On     : $exp"
 echo -e "=================================" | lolcat
 echo -e "~ AutoScript WORLDSSH"

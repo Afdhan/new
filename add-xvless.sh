@@ -4,6 +4,14 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
 
 clear 
 domain=$(cat /etc/v2ray/domain)
@@ -43,7 +51,7 @@ cat> /usr/local/etc/xray/vless-$user.json<<END
       "streamSettings": {
         "network": "ws", 
         "wsSettings": {
-        "path":"/endka@u=$user&p=$uid&"
+        "path":"/worldssh@u=$user&p=$uid&"
         }
       }
     }
@@ -92,7 +100,7 @@ cat> /usr/local/etc/xray/vless-$user.json<<END
 }
 END
 sed -i '$ i### Vless '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'&' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /worldssh@u='"$user"'&p='"$uid"'&' /etc/nginx/conf.d/vps.conf
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
@@ -103,8 +111,8 @@ sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/vps.conf
 sed -i '$ i}' /etc/nginx/conf.d/vps.conf
-vlesslink1="vless://${uuid}@${domain}:443/?tyepe=ws&encryption=none&host=bug.com&path=%2Fendka@u%3D${user}%26p%3D${uid}%26&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:80?path=%2Fendka@u%3D${user}%26p%3D${uid}%26&encryption=none&type=ws#${user}"
+vlesslink1="vless://${uuid}@${domain}:443/?tyepe=ws&encryption=none&host=bug.com&path=%2Fworldssh@u%3D${user}%26p%3D${uid}%26&security=tls&encryption=none&type=ws#${user}"
+vlesslink2="vless://${uuid}@${domain}:80?path=%2Fworldssh@u%3D${user}%26p%3D${uid}%26&encryption=none&type=ws#${user}"
 systemctl start xray@vless-$user
 systemctl enable xray@vless-$user
 echo -e "\033[32m[Info]\033[0m Xray-Vless Start Successfully !"
@@ -114,14 +122,14 @@ clear
 echo -e ""
 echo -e "==========-X2RAY/VLESS-=========="
 echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}/${MYIP}"
+echo -e "Domain         : ${domain}"
 echo -e "port TLS       : 443"
 echo -e "port none TLS  : 80"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 2"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /endka@u=${user}&p=${uid}&"
+echo -e "path           : /worldssh@u=${user}&p=${uid}&"
 echo -e "================================="
 echo -e "link TLS       : ${vlesslink1}"
 echo -e "================================="

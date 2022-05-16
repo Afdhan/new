@@ -118,10 +118,6 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O add-xr "https://raw.githubusercontent.com/Afdhan/new/main/add-xr.sh"
-wget -O add-xvless "https://raw.githubusercontent.com/Afdhan/new/main/add-xvless.sh"
-wget -O del-xr "https://raw.githubusercontent.com/Afdhan/new/main/del-xr.sh"
-wget -O del-xvless "https://raw.githubusercontent.com/Afdhan/new/main/del-xvless.sh"
 wget -O addws "https://raw.githubusercontent.com/Afdhan/new/main/addws.sh"
 wget -O addvless "https://raw.githubusercontent.com/Afdhan/new/main/addvless.sh"
 wget -O delws "https://raw.githubusercontent.com/Afdhan/new/main/delws.sh"
@@ -137,14 +133,18 @@ wget -O certv2ray "https://raw.githubusercontent.com/Afdhan/new/main/cert.sh"
 wget -O add-tr "https://raw.githubusercontent.com/Afdhan/new/main/add-tr.sh"
 wget -O del-tr "https://raw.githubusercontent.com/Afdhan/new/main/del-tr.sh"
 wget -O cek-tr "https://raw.githubusercontent.com/Afdhan/new/main/cek-tr.sh"
+
+wget -O add-trg "https://raw.githubusercontent.com/Afdhan/new/main/addtrgo.sh"
+wget -O del-trg "https://raw.githubusercontent.com/Afdhan/new/main/deltrgo.sh"
+wget -O renew-trg "https://raw.githubusercontent.com/Afdhan/new/main/renew-trg.sh"
+
 wget -O xp-tr "https://raw.githubusercontent.com/Afdhan/new/main/xp-tr.sh"
 chmod +x add-tr
-chmod +x add-xr
-chmod +x add-xvless
-chmod +x del-xr
-chmod +x del-xvless
 chmod +x del-tr
 chmod +x cek-tr
+chmod +x add-trg
+chmod +x del-trg
+chmod +x renew-trg
 chmod +x xp-tr
 chmod +x addws
 chmod +x addvless
@@ -162,6 +162,9 @@ chmod +x certv2ray
 shc -r -f add-tr -o add-tr
 shc -r -f del-tr -o del-tr
 shc -r -f cek-tr -o cek-tr
+shc -r -f add-trg -o add-trg
+shc -r -f del-trg -o del-trg
+shc -r -f renew-trg -o cek-trg
 shc -r -f xp-tr -o xp-tr
 shc -r -f addws -o addws
 shc -r -f addvless -o addvless
@@ -175,10 +178,11 @@ shc -r -f renew-vless -o renewvless
 shc -r -f xp-ws -o xp-ws
 shc -r -f xp-vless -o xp-vless
 shc -r -f certv2ray -o certv2ray
-
 cd
 mv /root/domain /etc/v2ray
 echo "59 23 * * * root xp-ws" >> /etc/crontab
 echo "59 23 * * * root xp-trgo" >> /etc/crontab
 echo "59 23 * * * root xp-vless" >> /etc/crontab
+echo "59 23 * * * root xp" >> /etc/crontab
+echo "0 0 * * * root clear-log reboot" >> /etc/crontab
 

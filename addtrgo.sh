@@ -1,28 +1,32 @@
 #!/bin/bash
 domain=$(cat /etc/v2ray/domain)
-read -rp "User: " -e user
-egrep -w "^### $user" /etc/trojan-go/akun.conf >/dev/null
+read -rp "Username: " -e user
+egrep -w "^### $user" /usr/local/etc/xray/trojanws.json >/dev/null
 if [ $? -eq 0 ]; then
 echo -e "Username Sudah Ada"
+
 exit 0
 fi
+uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-uuid=$(cat /etc/trojan-go/uuid.txt)
-sed -i '/"'""$uuid""'"$/a\,"'""$user""'"' /etc/trojan-go/config.json
-echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
-systemctl restart trojan-go.service
-trojangolink="trojan-go://${user}@${domain}:443/?sni=${domain}&type=ws&host=${domain}&path=/Trojan-go&encryption=none#${user}"
+sed -i '/#tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trojanws.json
+systemctl restart xray@trojanws
+trojanlink="trojan-go://${uuid}@${domain}:443/?sni=${domain}&type=ws&host=${domain}&path=/WorldSSH&encryption=none#${user}"
+echo -e "### $user $exp" >> /etc/trojan/trojango.conf
 clear
+
 echo -e ""
-echo -e "===========-Trojan-GO-==========="
+echo -e "===========-Trojan-GO-===========" | lolcat
 echo -e "Remarks        : ${user}"
 echo -e "Host/IP        : ${domain}"
 echo -e "port           : 443"
 echo -e "Key            : ${user}"
-echo -e "Path           : /Trojan-go"
-echo -e "================================="
-echo -e "Trojan-go Link : ${trojangolink}"
-echo -e "================================="
+echo -e "Path           : /WorldSSH"
+echo -e "=================================" | lolcat
+echo -e "Trojan-GO Link : ${trojangolink}"
+echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
+echo -e "=================================" | lolcat
 echo -e "~ AutoScript WORLDSSH"
