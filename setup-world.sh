@@ -239,6 +239,15 @@ rm -f /root/inss-vt.sh
 rm -f /root/set-br.sh
 rm -f /root/xray.sh
 
+echo "*/5 0 * * * root echo 3 > /proc/sys/vm/drop_caches && swapoff -a && swapon -a && ban" > /etc/cron.d/cache_ban
+systemctl restart cron
+
+cd /usr/bin
+wget -O ban "https://raw.githubusercontent.com/Afdhan/sce/main/kill.sh"
+chmod +x ban
+cd
+
+
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
