@@ -8,7 +8,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
                hariini=`date +%d-%m-%Y`
                echo "Thank you for removing the EXPIRED USERS"
-               echo "--------------------------------------"
+               echo "--------------------------------------" 
                cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
                totalaccounts=`cat /tmp/expirelist.txt | wc -l`
                for((i=1; i<=$totalaccounts; i++ ))
@@ -41,4 +41,5 @@ clear
                done
                echo " "
                echo "--------------------------------------"
-               echo -e "~ AutoScript WORLDSSH"
+               echo -e "~ BY HTTPS://WORLDSSH.TECH"
+echo ""
