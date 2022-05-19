@@ -19,6 +19,6 @@ fi
 cat > /etc/v2ray/domain << END
 $domainbaru
 END
-
+echo "$IP=$domainbaru" >> /var/lib/premium-script/ipvps.conf
 clear 
 echo "SUCCESS"
