@@ -119,23 +119,23 @@ echo -e "\033[32m[Info]\033[0m Xray-Vless Start Successfully !"
 sleep 2
 systemctl reload nginx
 clear
-echo -e ""
-echo -e "==========-X2RAY/VLESS-=========="
+echo -e "=================================" | lolcat
+echo -e "VPN TYPE       : XRAY - VLESS   "
+echo -e "=================================" | lolcat
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "port TLS       : 443"
-echo -e "port none TLS  : 80"
-echo -e "id             : ${uuid}"
-echo -e "alterId        : 2"
+echo -e "Port TLS       : 443"
+echo -e "Port NTLS      : 80"
+echo -e "ID             : ${uuid}"
+echo -e "AlterId        : 2"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /worldssh@u=${user}&p=${uid}&"
-echo -e "================================="
-echo -e "link TLS       : ${vlesslink1}"
-echo -e "================================="
-echo -e "link none TLS  : ${vlesslink2}"
+echo -e "Path           : /worldssh@u=${user}&p=${uid}&"
 echo -e "=================================" | lolcat
-echo -e "Created        : $now"
+echo -e "Link TLS       : ${vlesslink1}"
+echo -e "=================================" | lolcat
+echo -e "Link NTLS      : ${vlesslink2}"
+echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
-echo -e "=================================" lolcat
-echo -e "~ AutoScript WORLDSSH"
+echo -e "=================================" | lolcat
+echo -e "~ BY HTTPS://WORLDSSH.TECH"
