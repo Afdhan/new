@@ -115,8 +115,8 @@ vlesslink1="vless://${uuid}@${domain}:443/?tyepe=ws&encryption=none&host=bug.com
 vlesslink2="vless://${uuid}@${domain}:80?path=%2Fworldssh@u%3D${user}%26p%3D${uid}%26&encryption=none&type=ws#${user}"
 systemctl start xray@vless-$user
 systemctl enable xray@vless-$user
-echo -e "\033[32m[Info]\033[0m Xray-Vless Start Successfully !"
-sleep 2
+#echo -e "\033[32m[Info]\033[0m Xray-Vless Start Successfully !"
+sleep 0.5
 systemctl reload nginx
 clear
 echo -e "=================================" | lolcat
@@ -127,9 +127,9 @@ echo -e "Domain         : ${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port NTLS      : 80"
 echo -e "ID             : ${uuid}"
-echo -e "AlterId        : 2"
-echo -e "Security       : auto"
-echo -e "network        : ws"
+#echo -e "AlterId        :))
+echo -e "Encryption     : none"
+echo -e "Network        : ws"
 echo -e "Path           : /worldssh@u=${user}&p=${uid}&"
 echo -e "=================================" | lolcat
 echo -e "Link TLS       : ${vlesslink1}"
