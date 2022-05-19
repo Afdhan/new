@@ -42,15 +42,16 @@ sleep 2
 trojanlink="trojan://${user}@${domain}:${tr}"
 trojanlink2="trojan://${user}@${MYIP}:${tr}"
 clear
-echo -e ""
-echo -e "=============-Trojan-============" | lolcat
+echo -e "=================================" | lolcat
+echo -e "VPN TYPE       : TROJAN GFW"
+echo -e "=================================" | lolcat
 echo -e "Remarks        : ${user}"
-echo -e "Host/IP        : ${domain}"
-echo -e "port           : ${tr}"
+echo -e "Host           : ${domain}"
+echo -e "Port           : ${tr}"
 echo -e "Key            : ${user}"
-echo -e "link1          : ${trojanlink}"
-echo -e "link2  		: ${trojanlink2}"
+echo -e "Link           : ${trojanlink}"
+#echo -e "link2  		: ${trojanlink2}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "=================================" | lolcat
-echo -e "~ AutoScript WORLDSSH"
+echo -e "~ BY HTTPS://WORLDSSH.TECH"
