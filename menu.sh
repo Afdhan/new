@@ -21,16 +21,16 @@ LIGHT='\033[0;37m'
 #Domain
 domain=$(cat /etc/v2ray/domain)
 #Status certificate
-modifyTime=$(stat $HOME/.acme.sh/${domain}_ecc/${domain}.key | sed -n '7,6p' | awk '{print $2" "$3" "$4" "$5}')
-modifyTime1=$(date +%s -d "${modifyTime}")
-currentTime=$(date +%s)
-stampDiff=$(expr ${currentTime} - ${modifyTime1})
-days=$(expr ${stampDiff} / 86400)
-remainingDays=$(expr 90 - ${days})
-tlsStatus=${remainingDays}
-if [[ ${remainingDays} -le 0 ]]; then
-	tlsStatus="expired"
-fi
+#modifyTime=$(stat $HOME/.acme.sh/${domain}_ecc/${domain}.key | sed -n '7,6p' | awk '{print $2" "$3" "$4" "$5}')
+#modifyTime1=$(date +%s -d "${modifyTime}")
+#currentTime=$(date +%s)
+#stampDiff=$(expr ${currentTime} - ${modifyTime1})
+#days=$(expr ${stampDiff} / 86400)
+#remainingDays=$(expr 90 - ${days})
+#tlsStatus=${remainingDays}
+#if [[ ${remainingDays} -le 0 ]]; then
+#	tlsStatus="expired"
+#fi
 # OS Uptime
 uptime="$(uptime -p | cut -d " " -f 2-10)"
 # Download
