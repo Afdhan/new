@@ -43,7 +43,7 @@ exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "s/### Vless $user $exp/### Vless $user $exp4/g" /etc/nginx/conf.d/vps.conf
 clear
 echo ""
-echo " VMESS berhasil diperpanjang"
+echo " VLESS berhasil diperpanjang"
 echo " =========================="
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
