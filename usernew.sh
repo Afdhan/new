@@ -23,26 +23,32 @@ clear
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
-echo -e ""
-echo -e "===============================" | lolcat
+echo -e "=================================" | lolcat
+echo -e "VPN TYPE       : SSH - WS"
+echo -e "=================================" | lolcat
 echo -e "Username       : $Login "
 echo -e "Password       : $Pass"
-echo -e "===============================" | lolcat
+echo -e "=================================" | lolcat
 echo -e "Domain         : ${domain}"
-echo -e "Host           : $IP"
+echo -e "Host/IP        : $IP"
 echo -e "ISP            : $ISP"
 echo -e "CITY           : $CITY"
 echo -e "OpenSSH        : 22"
 echo -e "Dropbear       : 109, 143"
 echo -e "SSL/TLS        : $ssl"
-echo -e "SSH WS CDN     : 443, 8880"
-echo -e "OVPN CDN       : 2082"
+echo -e "SSH WS CDN     : 8880, 2095"
+echo -e "TLS WS CDN     : 443"
+#echo -e "OVPN CDN       : 2082"
 echo -e "Port Squid     : $sqd"
-echo -e "OpenVPN        : TCP $ovpn http://$IP:81/client-tcp-$ovpn.ovpn"
-echo -e "OpenVPN        : UDP $ovpn2 http://$IP:81/client-udp-$ovpn2.ovpn"
-echo -e "OpenVPN        : SSL 442 http://$IP:81/client-tcp-ssl.ovpn"
+echo -e "OHP SSH        : 8181"
+echo -e "OHP Dropbear   : 8282"
+#echo -e "OHP OVPN       : 8383"
+#echo -e "OpenVPN        : TCP $ovpn http://$domain:81/client-tcp-$ovpn.ovpn"
+#echo -e "OpenVPN        : UDP $ovpn2 http://$domain:81/client-udp-$ovpn2.ovpn"
+#echo -e "OpenVPN        : SSL 442 http://$domain:81/client-tcp-ssl.ovpn"
 echo -e "BadVPN         : 7100-7300"
-echo -e "===============================" | lolcat
+echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
-echo -e "===============================" | lolcat
-echo -e "~ AutoScript WORLDSSH"
+echo -e "=================================" | lolcat
+echo -e "~ BY HTTPS://WORLDSSH.TECH"
+echo -e ""
