@@ -4,6 +4,15 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
+
 
 clear
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
@@ -26,6 +35,7 @@ echo -e "     [2]  AutoKill After 10 Minutes"
 echo -e "     [3]  AutoKill After 15 Minutes"
 echo -e "     [4]  Turn Off AutoKill/MultiLogin"
 echo -e "     [x]  Exit"
+echo -e ""
 echo -e "======================================" | lolcat                                                                                                         
 echo -e ""
 read -p "     Select From Options [1-4 or x] :  " AutoKill
