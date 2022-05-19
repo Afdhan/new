@@ -16,17 +16,18 @@ systemctl restart xray@trojanws
 trojanlink="trojan-go://${uuid}@${domain}:443/?sni=${domain}&type=ws&host=${domain}&path=/WorldSSH&encryption=none#${user}"
 echo -e "### $user $exp" >> /etc/trojan/trojango.conf
 clear
-
-echo -e ""
-echo -e "===========-Trojan-GO-===========" | lolcat
+echo -e "=================================" | lolcat
+echo -e "VPN TYPE       : TROJAN GO"
+echo -e "=================================" | lolcat
 echo -e "Remarks        : ${user}"
-echo -e "Host/IP        : ${domain}"
-echo -e "port           : 443"
+echo -e "Host           : ${domain}"
+echo -e "Port           : 443"
 echo -e "Key            : ${user}"
 echo -e "Path           : /WorldSSH"
 echo -e "=================================" | lolcat
-echo -e "Trojan-GO Link : ${trojangolink}"
+echo -e "Link           : ${trojangolink}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "=================================" | lolcat
-echo -e "~ AutoScript WORLDSSH"
+echo -e "~ BY HTTPS://WORLDSSH.TECH"
+echo -e ""
