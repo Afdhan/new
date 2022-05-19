@@ -178,6 +178,48 @@ shc -r -f renew-vless -o renewvless
 shc -r -f xp-ws -o xp-ws
 shc -r -f xp-vless -o xp-vless
 shc -r -f certv2ray -o certv2ray
+
+
+wget -O add-xr "https://raw.githubusercontent.com/Afdhan/new/main/add-xr.sh"
+wget -O add-xvless "https://raw.githubusercontent.com/Afdhan/new/main/add-xvless.sh"
+wget -O del-xr "https://raw.githubusercontent.com/Afdhan/new/main/del-xr.sh"
+wget -O del-xvless "https://raw.githubusercontent.com/Afdhan/new/main/del-xvless.sh"
+wget -O cekws "https://raw.githubusercontent.com/Afdhan/new/main/cekws.sh"
+wget -O cekvless "https://raw.githubusercontent.com/Afdhan/new/main/cekvless.sh"
+wget -O renewws "https://raw.githubusercontent.com/Afdhan/new/main/renewws.sh"
+wget -O renewvless "https://raw.githubusercontent.com/Afdhan/new/main/renewvless.sh"
+wget -O renewtr "https://raw.githubusercontent.com/Afdhan/new/main/renewtr.sh"
+wget -O xp-xr "https://raw.githubusercontent.com/Afdhan/new/main/xp-xr.sh"
+wget -O xp-xvless "https://raw.githubusercontent.com/Afdhan/new/main/xp-xvless.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/Afdhan/new/main/cert.sh"
+wget -O add-tr "https://raw.githubusercontent.com/Afdhan/new/main/add-tr.sh"
+wget -O del-tr "https://raw.githubusercontent.com/Afdhan/new/main/del-tr.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/Afdhan/new/main/cek-tr.sh"
+wget -O xp-tr "https://raw.githubusercontent.com/Afdhan/new/main/xp-tr.sh"
+wget -O xp-trgo "https://raw.githubusercontent.com/Afdhan/new/main/xp-trgo.sh"
+chmod +x add-tr
+chmod +x del-tr
+chmod +x cek-tr
+chmod +x xp-tr
+chmod +x xp-trgo
+chmod +x add-xr
+chmod +x add-xvless
+chmod +x del-xr
+chmod +x del-xvless
+chmod +x cekws
+chmod +x cekvless
+chmod +x renewws
+chmod +x renewtr
+chmod +x renewvless
+chmod +x xp-xr
+chmod +x xp-xvless
+chmod +x certv2ray
+cd
+mv /root/domain /etc/v2ray
+echo "59 23 * * * root xp-xr" >> /etc/crontab
+echo "59 23 * * * root xp-trgo" >> /etc/crontab
+echo "59 23 * * * root xp-xvless" >> /etc/crontab
+
 cd
 mv /root/domain /etc/v2ray
 echo "59 23 * * * root xp-ws" >> /etc/crontab
