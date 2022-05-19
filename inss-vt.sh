@@ -158,27 +158,6 @@ chmod +x renewvless
 chmod +x xp-ws
 chmod +x xp-vless
 chmod +x certv2ray
-#enc
-shc -r -f add-tr -o add-tr
-shc -r -f del-tr -o del-tr
-shc -r -f cek-tr -o cek-tr
-shc -r -f add-trg -o add-trg
-shc -r -f del-trg -o del-trg
-shc -r -f renew-trg -o cek-trg
-shc -r -f xp-tr -o xp-tr
-shc -r -f addws -o addws
-shc -r -f addvless -o addvless
-shc -r -f delws -o delws
-shc -r -f delvless -o delvless
-shc -r -f cekws -o cekws
-shc -r -f cekvless -o cekvless
-shc -r -f renewws -o renewws
-shc -r -f renew-tr -o renew-tr
-shc -r -f renew-vless -o renewvless
-shc -r -f xp-ws -o xp-ws
-shc -r -f xp-vless -o xp-vless
-shc -r -f certv2ray -o certv2ray
-
 
 wget -O add-xr "https://raw.githubusercontent.com/Afdhan/new/main/add-xr.sh"
 wget -O add-xvless "https://raw.githubusercontent.com/Afdhan/new/main/add-xvless.sh"
@@ -214,14 +193,35 @@ chmod +x renewvless
 chmod +x xp-xr
 chmod +x xp-xvless
 chmod +x certv2ray
-cd
-mv /root/domain /etc/v2ray
-echo "59 23 * * * root xp-xr" >> /etc/crontab
-echo "59 23 * * * root xp-trgo" >> /etc/crontab
-echo "59 23 * * * root xp-xvless" >> /etc/crontab
+
+
+
+#enc
+shc -r -f add-tr -o add-tr
+shc -r -f del-tr -o del-tr
+shc -r -f cek-tr -o cek-tr
+shc -r -f add-trg -o add-trg
+shc -r -f del-trg -o del-trg
+shc -r -f renew-trg -o cek-trg
+shc -r -f xp-tr -o xp-tr
+shc -r -f addws -o addws
+shc -r -f addvless -o addvless
+shc -r -f delws -o delws
+shc -r -f delvless -o delvless
+shc -r -f cekws -o cekws
+shc -r -f cekvless -o cekvless
+shc -r -f renewws -o renewws
+shc -r -f renew-tr -o renew-tr
+shc -r -f renew-vless -o renewvless
+shc -r -f xp-ws -o xp-ws
+shc -r -f xp-vless -o xp-vless
+shc -r -f certv2ray -o certv2ray
+
+
 
 cd
 mv /root/domain /etc/v2ray
+echo "59 23 * * * root xp-xr" >> /etc/crontab
 echo "59 23 * * * root xp-ws" >> /etc/crontab
 echo "59 23 * * * root xp-trgo" >> /etc/crontab
 echo "59 23 * * * root xp-vless" >> /etc/crontab
