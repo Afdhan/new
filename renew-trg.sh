@@ -1,4 +1,20 @@
 #!/bin/bash
+DF='\e[39m'
+Bold='\e[1m'
+Blink='\e[5m'
+yell='\e[33m'
+red='\e[31m'
+green='\e[32m'
+blue='\e[34m'
+PURPLE='\e[35m'
+cyan='\e[36m'
+Lred='\e[91m'
+Lgreen='\e[92m'
+Lyellow='\e[93m'
+NC='\e[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
@@ -43,8 +59,9 @@ exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "s/### $user $exp/### $user $exp4/g" /usr/local/etc/xray/trojanws.json
 clear
 echo ""
-echo " Akun Trojan GO berhasil diperpanjang"
-echo " =========================="
+echo " Trojan-GO berhasil diperbarui"
+echo " ==========================" | lolcat
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
-echo " =========================="
+echo " ==========================" | lolcat
+echo ""
