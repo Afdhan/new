@@ -7,7 +7,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[0;100;33m         • RESET SERVER •          \E[0m"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
-echo -e "[ \033[32mInfo\033[0m ] RESET Begin"
+echo -e "[ \033[32mInfo\033[0m ] Begin RESET"
 systemctl daemon-reload
 echo -e "[ \033[32mok\033[0m ] daemon-reload Service Restarted"
 systemctl restart xray
@@ -50,4 +50,4 @@ echo ""
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Press any key to back on system menu"
-m-system
+menu
