@@ -28,10 +28,10 @@ vnstat_service=$(/etc/init.d/vnstat status | grep Active | awk '{print $3}' | cu
 nginx_status=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 cron_service=$(/etc/init.d/cron status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 fail2ban_service=$(/etc/init.d/fail2ban status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-wg="$(systemctl show wg-quick@wg0.service --no-page)"
+#wg="$(systemctl show wg-quick@wg0.service --no-page)"
 swg=$(echo "${wg}" | grep 'ActiveState=' | cut -f2 -d=)                                     
 strgo=$(echo "${trgo}" | grep 'ActiveState=' | cut -f2 -d=)  
-sswg=$(systemctl status wg-quick@wg0 | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+#sswg=$(systemctl status wg-quick@wg0 | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 
 # Color Validation
 yell='\e[33m'
@@ -161,9 +161,9 @@ echo -e "\033[0;33m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[0;100;33m                 Status Service               \E[0m"
 echo -e "\033[0;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "   "
-echo -e "   SSH / Tun      : $status_ssh"
+echo -e "   SSH            : $status_ssh"
 echo -e "   OpenVPN        : $status_openvpn"
-echo -e "   OHP            : $status_OHPovpn"
+#echo -e "   OHP            : $status_OHPovpn"
 echo -e "   Dropbear       : $status_beruangjatuh"
 echo -e "   Stunnel        : $status_stunnel"
 echo -e "   Squid          : $status_squid"
@@ -175,11 +175,11 @@ echo -e "   XRAY CORE      : $status_xtls_xray"
 echo -e "   XRAY TROJAN    : $status_xtls_xray"
 echo -e "   V2RAY CORE     : $status_tls_v2ray"
 echo -e "   V2RAY TROJAN   : $status_tls_v2ray"
-echo -e "   SSR            : $status_ssr"
-echo -e "   Shadowsocks    : $status_sodosok"
+#echo -e "   SSR            : $status_ssr"
+#echo -e "   Shadowsocks    : $status_sodosok"
 echo -e "   Trojan GFW     : $status_virus_trojan"
-echo -e "   Wireguard      : $status_wg"
+#echo -e "   Wireguard      : $status_wg"
 echo -e "\033[0;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo ""
-read -n 1 -s -r -p "Press any key to back on  menu"
-menu
+#read -n 1 -s -r -p "Press any key to back on  menu"
+#menu
