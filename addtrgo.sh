@@ -22,7 +22,9 @@ echo -e "=================================" | lolcat
 echo -e "Remarks        : ${user}"
 echo -e "Host           : ${domain}"
 echo -e "Port           : 443"
-echo -e "Key            : ${user}"
+echo -e "Key            : ${uuid}"
+echo -e "Network        : ws"
+echo -e "Encryption     : none"
 echo -e "Path           : /WorldSSH"
 echo -e "=================================" | lolcat
 echo -e "Link           : ${trojangolink}"
