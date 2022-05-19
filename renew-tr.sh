@@ -1,5 +1,13 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
 
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan/akun.conf")
@@ -35,8 +43,9 @@ exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "s/### $user $exp/### $user $exp4/g" /etc/trojan/akun.conf
 clear
 echo ""
-echo " Trojan Account Was Successfully Renewed"
+echo " Trojan Berhasil Diperbarui"
 echo " ==========================" | lolcat
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
 echo " ==========================" | lolcat
+echo ""
