@@ -166,9 +166,9 @@ echo -e "Security       : auto"
 echo -e "Metwork        : ws"
 echo -e "Path           : /worldssh@u=${user}&p=${uid}&"
 echo -e "=================================" | lolcat
-echo -e "link TLS       : ${vmesslink1}"
+echo -e "Link TLS       : ${vmesslink1}"
 echo -e "=================================" | lolcat
-echo -e "link none TLS  : ${vmesslink2}"
+echo -e "Link NTLS      : ${vmesslink2}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "=================================" | lolcat
