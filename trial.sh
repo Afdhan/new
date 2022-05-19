@@ -32,7 +32,7 @@ echo -e "Username       : $Login "
 echo -e "Password       : $Pass"
 echo -e "=================================" | lolcat
 echo -e "Domain         : ${domain}"
-echo -e "Host           : $IP"
+echo -e "Host/IP        : $IP"
 echo -e "ISP            : $ISP"
 echo -e "CITY           : $CITY"
 echo -e "OpenSSH        : 22"
