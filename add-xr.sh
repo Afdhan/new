@@ -153,22 +153,24 @@ systemctl start xray@vmess-$user
 systemctl enable xray@vmess-$user
 systemctl reload nginx
 clear
-echo -e ""
-echo -e "==========-XRAY/VMESS-=========="
+echo -e "=================================" | lolcat
+echo -e "VPN TYPE       : XRAY - VMESS"
+echo -e "=================================" | lolcat
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "port TLS       : 443"
-echo -e "port none TLS  : 80"
-echo -e "id             : ${uuid}"
+echo -e "Port TLS       : 443"
+echo -e "Port NTLS      : 80"
+echo -e "ID             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
-echo -e "network        : ws"
-echo -e "path           : /worldssh@u=${user}&p=${uid}&"
-echo -e "================================="
+echo -e "Metwork        : ws"
+echo -e "Path           : /worldssh@u=${user}&p=${uid}&"
+echo -e "=================================" | lolcat
 echo -e "link TLS       : ${vmesslink1}"
-echo -e "================================="
+echo -e "=================================" | lolcat
 echo -e "link none TLS  : ${vmesslink2}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "=================================" | lolcat
-echo -e "~ AutoScript WORLDSSH"
+echo -e "~ BY HTTPS://WORLDSSH.TECH"
+echo -e ""
