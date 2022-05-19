@@ -4,11 +4,20 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
+
 
 clear
-echo "---------------------------------------------------"
+echo "---------------------------------------------------" | lolcat
 echo "USERNAME          EXP DATE          STATUS"
-echo "---------------------------------------------------"
+echo "---------------------------------------------------" | lolcat
 while read expired
 do
 AKUN="$(echo $expired | cut -d: -f1)"
@@ -24,9 +33,9 @@ fi
 fi
 done < /etc/passwd
 JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-echo "---------------------------------------------------"
+echo "---------------------------------------------------" | lolcat
 echo "Account number: $JUMLAH user"
-echo "---------------------------------------------------"
+echo "---------------------------------------------------" | lolcat
 
 read -p "Username SSH to Delete : " Pengguna
 
