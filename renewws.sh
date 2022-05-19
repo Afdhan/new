@@ -1,5 +1,14 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
+
 
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### Vmess " "/etc/nginx/conf.d/vps.conf")
@@ -34,8 +43,9 @@ exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "s/### Vmess $user $exp/### Vmess $user $exp4/g" /etc/nginx/conf.d/vps.conf
 clear
 echo ""
-echo " Akun VMESS berhasil diperpanjang"
+echo " VMESS berhasil diperpanjang"
 echo " =========================="
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
 echo " =========================="
+echo ""
