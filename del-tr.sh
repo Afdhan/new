@@ -4,6 +4,15 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
+
 
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan/akun.conf")
@@ -35,8 +44,9 @@ systemctl restart trojan
 service cron restart
 clear
 clear
-echo " Trojan Account Deleted Successfully"
+echo " Trojan Berhasil Dihapus"
 echo " ==========================" | lolcat
 echo " Client Name : $user"
 echo " Expired On  : $exp"
 echo " ==========================" | lolcat
+echo ""
