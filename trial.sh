@@ -8,7 +8,7 @@ else
 echo -e "${NC}${RED}Permission Denied!${NC}";
 exit 0
 fi 
-
+domain=$(cat /etc/v2ray/domain);
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
