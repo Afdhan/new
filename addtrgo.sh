@@ -1,4 +1,14 @@
 #!/bin/bash
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+exit 0
+fi 
+
 domain=$(cat /etc/v2ray/domain)
 read -rp "Username: " -e user
 egrep -w "^### $user" /usr/local/etc/xray/trojanws.json >/dev/null
@@ -7,6 +17,7 @@ echo -e "Username Sudah Ada"
 
 exit 0
 fi
+clear
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
