@@ -27,7 +27,7 @@ echo -e "Network        : ws"
 echo -e "Encryption     : none"
 echo -e "Path           : /WorldSSH"
 echo -e "=================================" | lolcat
-echo -e "Link           : ${trojangolink}"
+echo -e "Link           : ${trojanlink}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "=================================" | lolcat
