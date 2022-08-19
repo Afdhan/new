@@ -294,6 +294,7 @@ echo -e ""
 rm -f /root/*.sh
 rm -f /root/setup.sh
 rm -f /root/.bash_history
+status
 echo -ne "[ ${yell}WARNING${NC} ] Reboot vps? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
