@@ -13,8 +13,8 @@ DIST_SRC='github'
 ERROR_IF_UPTODATE=''
 
 CUR_VER=""
-NEW_VER="v4.42.2"
-VDIS='64'
+NEW_VER=""
+VDIS=''
 ZIPFILE="/tmp/v2ray/v2ray.zip"
 V2RAY_RUNNING=0
 
@@ -470,7 +470,7 @@ main(){
     else
         # download via network and extract
         installSoftware "curl" || return $?
-     #   getVersion
+        getVersion
         RETVAL="$?"
         if [[ $RETVAL == 0 ]] && [[ "$FORCE" != "1" ]]; then
             colorEcho ${BLUE} "Latest version ${CUR_VER} is already installed."
