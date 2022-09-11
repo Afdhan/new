@@ -470,7 +470,7 @@ main(){
     else
         # download via network and extract
         installSoftware "curl" || return $?
-        getVersion
+     #   getVersion
         RETVAL="$?"
         if [[ $RETVAL == 0 ]] && [[ "$FORCE" != "1" ]]; then
             colorEcho ${BLUE} "Latest version ${CUR_VER} is already installed."
