@@ -14,7 +14,7 @@ ERROR_IF_UPTODATE=''
 
 CUR_VER=""
 NEW_VER="v4.42.2"
-VDIS=''
+VDIS='64'
 ZIPFILE="/tmp/v2ray/v2ray.zip"
 V2RAY_RUNNING=0
 
