@@ -14,7 +14,7 @@ echo -e ":
    Time     : $WKT
    IPVPS    : $IPVPS
    
-\033[1;33mAutoscript By Endka\e[0m
+\033[1;33mAutoscript By WORLDSSH\e[0m
 "
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m
 \033[1;32mPort Information\e[0m :
