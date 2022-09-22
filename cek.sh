@@ -5,7 +5,7 @@ BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$( curl https://worldssh.tech/api/sc/akses.php | grep $MYIP )
+IZIN=$( curl https://worldssh.com/api/sc/akses.php | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
